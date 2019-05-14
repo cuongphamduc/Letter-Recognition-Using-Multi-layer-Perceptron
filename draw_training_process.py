@@ -17,8 +17,8 @@ with open(file_path) as f:
 
 a = np.arange(0, 2000, 1)
 b = np.arange(0, 500, 1)
-plt.plot(a, loss1, color='b', label='Loss of MLP')
-plt.plot(b, loss2, color='r', label='Loss of MLP-sklearn')
+plt.plot(a, loss1, color='b', label='MLP')
+plt.plot(b, loss2, color='r', label='MLP-sklearn')
 
 plt.xlabel('Training epoch')
 plt.ylabel('Loss')

@@ -18,7 +18,7 @@ with open(file_path) as f:
 a = np.arange(0, 2000, 1)
 b = np.arange(0, 500, 1)
 plt.plot(a, loss1, color='b', label='MLP')
-plt.plot(b, loss2, color='r', label='MLP-sklearn')
+plt.plot(b, loss2, color='r', label='MLP_sklearn')
 
 plt.xlabel('Training epoch')
 plt.ylabel('Loss')
@@ -30,5 +30,5 @@ plt.yticks(np.arange(0.0, 3.5, 0.3))
 plt.grid()
 plt.legend()
 
-plt.savefig('image/training.png')
+plt.savefig('image/training_process.png')
 plt.show()

@@ -81,7 +81,7 @@ with tqdm(total=2000, file=sys.stdout, desc='Training') as pbar:
         X_train = X_train.T
         Y_train = Y_train.T
 
-        X_train, Y_train = sklearn.utils.shuffle(X_train, Y_train, random_state=97)
+        X_train, Y_train = sklearn.utils.shuffle(X_train, Y_train)
 
         X_train = X_train.T
         Y_train = Y_train.T

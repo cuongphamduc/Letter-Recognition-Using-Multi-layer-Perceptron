@@ -117,7 +117,7 @@ with tqdm(total=2000, file=sys.stdout, desc='Training') as pbar:
         loss.append(statistics.mean(tmp))
         pbar.write('Iteration %d, loss = %f' % (i + 1, loss[-1]))
 
-        if check_lost(loss, 0, n_iter_no_change):
+        if check_lost(loss, tol, n_iter_no_change):
             pbar.write('Training loss did not improve more than tol=%f'
                        'for %d consecutive epochs. Stopping.'
                        % (tol, n_iter_no_change))

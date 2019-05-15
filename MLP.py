@@ -87,7 +87,7 @@ with tqdm(total=2000, file=sys.stdout, desc='Training') as pbar:
         Y_train = Y_train.T
 
         for j in range(0, N, batch_size):
-            # Pick a batch
+            # Pick a mini-batch
             X_batch = X_train[:, j: j + batch_size]
             Y_batch = Y_train[:, j: j + batch_size]
 

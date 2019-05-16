@@ -30,7 +30,7 @@ def plot_confusion_matrix(cm, classes, accuracy, normalize=False,
                  color='white' if cm[k, j] > thresh else 'black', fontsize=6, weight='bold')
 
     plt.ylabel('True label')
-    plt.xlabel('Predicted label\n(Accuracy = {:0.4f})'.format(accuracy))
+    plt.xlabel('Predicted label\n(Accuracy = {:0.2f})'.format(accuracy))
     plt.savefig('image/' + title + '.png')
     plt.show()
 

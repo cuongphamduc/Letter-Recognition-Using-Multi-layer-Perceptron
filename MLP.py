@@ -72,13 +72,11 @@ n_iter_no_change = 10
 batch_size = 50
 
 X_train = np.asarray(x_train).T  # X_train = (16, 16000)
-
 Y_train = to_one_hot(y_train).T  # Y_train =(26, 16000)
-
 N = X_train.shape[1]
 
-with tqdm(total=1, file=sys.stdout, desc='Training') as pbar:
-    for i in range(1):
+with tqdm(total=2000, file=sys.stdout, desc='Training') as pbar:
+    for i in range(2000):
         tmp = []
         X_train = X_train.T  # X_train = (16000, 16)
         Y_train = Y_train.T  # Y_train =(16000, 16)
@@ -129,19 +127,16 @@ with tqdm(total=1, file=sys.stdout, desc='Training') as pbar:
         pbar.update(1)
         sleep(1)
 
-X_test = np.asarray(x_test).T
+X_test = np.asarray(x_test).T  # X_test = (16, 4000)
+Z1 = np.dot(W1.T, X_test) + b1  # Z1 = (100, 16) x (16, 4000) + (100, 1) = (100, 4000)
+A1 = np.maximum(Z1, 0)  # A1 = (100, 4000)
+Z2 = np.dot(W2.T, A1) + b2  # Z2 = (26, 100) x (100, 4000) + (26, 1) = (26, 4000)
+predict = np.argmax(Z2, axis=0)  # predict = (4000,)
 
-Z1 = np.dot(W1.T, X_test) + b1
-A1 = np.maximum(Z1, 0)
-Z2 = np.dot(W2.T, A1) + b2
-predict = np.argmax(Z2, axis=0)
-
-Y_test = np.asarray(y_test)
+Y_test = np.asarray(y_test)  # Y_test = (4000,)
 
 for i in range(len(Y_test)):
     Y_test[i] = ord(Y_test[i]) - ord('A')
-
-print(Y_test)
 
 print('Accuracy score: %.2f' % (np.mean(predict == Y_test)))
 

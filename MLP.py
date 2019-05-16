@@ -49,7 +49,8 @@ def cross_entropy_loss(y, y_pre):
 
 
 class MLP:
-    def __init__(self, d0, d1, d2, learning_rate, tol, n_iter_no_change, batch_size, num_epochs):
+    def __init__(self, d0, d1, d2, learning_rate, tol,
+                 n_iter_no_change, batch_size, num_epochs):
         self.W1 = 0.01 * np.random.randn(d0, d1)
         # W1 = (16, 100)
         self.b1 = np.zeros((d1, 1))
@@ -169,8 +170,10 @@ if __name__ == '__main__':
     feature = df.drop(0, axis=1)
     # feature = (20000, 16)
 
-    X_train, X_test, y_train, y_test = train_test_split(feature, label, test_size=0.2, random_state=97)
-    # X_train = (16000, 16), X_test  = (4000, 16), y_train = (16000,), y_test = (4000,)
+    X_train, X_test, y_train, y_test = train_test_split \
+        (feature, label, test_size=0.2, random_state=97)
+    # X_train = (16000, 16), X_test  = (4000, 16),
+    # y_train = (16000,), y_test = (4000,)
 
     X_train = np.asarray(X_train).T
     # X = (16, 16000)

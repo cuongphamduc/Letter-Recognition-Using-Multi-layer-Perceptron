@@ -170,8 +170,7 @@ if __name__ == '__main__':
     feature = df.drop(0, axis=1)
     # feature = (20000, 16)
 
-    X_train, X_test, y_train, y_test = \
-        train_test_split(feature, label, test_size=0.2, random_state=97)
+    X_train, X_test, y_train, y_test = train_test_split(feature, label, test_size=0.2, random_state=97)
     # X_train = (16000, 16), X_test  = (4000, 16),
     # y_train = (16000,), y_test = (4000,)
 

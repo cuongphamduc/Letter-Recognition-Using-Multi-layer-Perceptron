@@ -1,20 +1,10 @@
 # import os
-import numpy as np
+# import numpy as np
 import pandas as pd
 from joblib import dump
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.neural_network import MLPClassifier
-
-
-def to_one_hot(labels, dimension=26):
-    results = np.zeros((len(labels), dimension))
-
-    for i, label in enumerate(labels):
-        results[i, ord(label) - ord('A')] = 1.
-
-    return results
-
 
 df = pd.read_csv('data/data.csv', header=None)
 

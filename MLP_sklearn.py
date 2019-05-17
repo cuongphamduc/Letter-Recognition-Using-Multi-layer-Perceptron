@@ -23,8 +23,9 @@ x = df.drop(0, axis=1)
 
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=97)
 
-clf = MLPClassifier(hidden_layer_sizes=(100, 26), max_iter=2000, learning_rate_init=0.001,
-                    batch_size=50, solver='sgd', verbose=True, tol=0.0001, random_state=97)
+clf = MLPClassifier(hidden_layer_sizes=(100, 26), max_iter=2000,
+                    learning_rate_init=0.001, batch_size=50, solver='sgd',
+                    verbose=True, tol=0.0001, random_state=97, n_iter_no_change=10)
 clf.fit(x_train, y_train)
 
 dump(clf, 'log/model/model.joblib')

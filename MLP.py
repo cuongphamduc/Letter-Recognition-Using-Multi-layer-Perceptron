@@ -75,14 +75,14 @@ class MLP:
                 X = X.T
                 # X = (16000, 16)
                 y = y.T
-                # y =(16000, 16)
+                # y = (16000, 16)
 
                 X, y = sklearn.utils.shuffle(X, y)
 
                 X = X.T
                 # X = (16, 16000)
                 y = y.T
-                # y =(26, 16000)
+                # y = (26, 16000)
 
                 for j in range(0, N, self.batch_size):
                     # Pick a mini-batch

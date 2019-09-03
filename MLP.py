@@ -89,7 +89,7 @@ class MLP:
                     X_batch = X[:, j: j + self.batch_size]
                     # X_batch = (16, 50)
                     y_batch = y[:, j: j + self.batch_size]
-                    # y_batch =(26, 50)
+                    # y_batch = (26, 50)
 
                     # Feedforward
                     Z1 = np.dot(self.W1.T, X_batch) + self.b1
